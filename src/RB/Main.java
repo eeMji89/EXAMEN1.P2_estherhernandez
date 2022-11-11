@@ -26,10 +26,34 @@ static ArrayList<Robot> Robots = new ArrayList();
             System.out.println("4. Actuar Manualmente");
             System.out.println("5. Salir");
             int opcion = lea.nextInt();
+            char [][]mapa = new char [8][8];
+            Robots.add(new Androide(5,12,"4321",0,0,false,"2007"));
             switch (opcion) {
                 case 1:
+                    boolean f1 = false;
+                    String Id="";
+                     while (f1==false) {
                     System.out.println("Ingrese el ID del robot:");
-                    String Id = lea.next();
+                    Id = lea.next();
+                    boolean f2 = false;
+                    if (Robots.isEmpty()==false) {        
+                        for (int i = 0; i < Robots.size(); i++) {
+                            if (Id.equals(((Robot)Robots.get(i)).getId())) {
+                                f2 = true;
+                            }
+                        }   
+                        if (f2==true) {
+                             System.out.println("EL ID ya existe, intente denuevo");
+                             System.out.println("");
+                        }
+                        else{
+                            f1=true;
+                        }                          
+                        }
+                    else{
+                        f1=true;
+                    }}
+                
                     System.out.println("Ingrese la posicion inicial");
                     System.out.println("Ingrese x: ");
                     int x = lea.nextInt();
@@ -81,18 +105,49 @@ static ArrayList<Robot> Robots = new ArrayList();
                     }
                     
                     break;
+
                 case 2:
                     System.out.println("ROBOTS");
                     System.out.println(Listr(Robots));
                     break;
                 case 3:
-                    int [][]mapa = new int [8][8];
+                    System.out.println("Seleccione el robot: ");
+                    System.out.println(Listr(Robots));
+                    int r= lea.nextInt();
+                    if (r<= Robots.size()) {
+                        if (Robots.get(r) instanceof Robot) {
+                            int x1 = Robots.get(r).getX();
+                            int y1 = Robots.get(r).getY();
+                             mapa = generarMapa(mapa,x1,y1);
+                             IMPMAP(mapa);
+                        }
+                    }
+                    else{
+                        System.out.println("Intente de nuevo");
+                    }
+                    
+                   
+                    
                     break;
                 case 4:
+                     System.out.println("Seleccione el robot: ");
+                    System.out.println(Listr(Robots));
+                    int rr= lea.nextInt();
+                    if (rr<= Robots.size()) {
+                        if (Robots.get(rr) instanceof Robot) {
+                            int x1 = Robots.get(rr).getX();
+                            int y1 = Robots.get(rr).getY();
+                             mapa = generarMapa(mapa,x1,y1);
+                             IMPMAP(mapa);
+                        }
+                    }
+                    else{
+                        System.out.println("Intente de nuevo");
+                    }
                     break;
                 case 5:
-                    break;
                     
+                    break;                   
                 default:
                     System.out.println("Opcion no valida");
                     break;
@@ -106,23 +161,55 @@ static ArrayList<Robot> Robots = new ArrayList();
         }
         return Listar;
     }
+    
     public static void IMPMAP(char [][]map){
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                System.out.println("["+map[i][j]+"]");
+                System.out.print("["+map[i][j]+"]");
             }
+            System.out.println("");
         }
     }
-    public static char [][] generarMapa(char [][]map,Robot r){
+    
+    public static char [][] generarMapa(char [][]map,int x, int y){
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 map[i][j]=' ';
                 if (j == 0) {
-                    
+                    if (i==3||i==4||i==5||i==6||i==7) {
+                        map[i][j]='X';
+                    }
                 }
                 if (j == 2) {
-                    
+                    if (i==0||i==1||i==2||i==3||i==6||i==7) {
+                        map[i][j]='X';
+                    }
                 }
+                if (j==4) {
+                     if (i==3||i==4) {
+                        map[i][j]='X';
+                    }
+                }
+                if (j==5) {
+                    if (i==0||i==1) {
+                        map[i][j]='X';
+                    }
+                }
+                if (j==6) {
+                    if (i==1||i==2||i==3||i==5||i==6||i==7) {
+                        map[i][j]='X';
+                    }
+                }
+                if (j==7&&i==7) {
+                   map[i][j]='D';
+                }
+                if(i==x&&j==y){
+                    map[i][j]='R';
+                }
+                     map[3][3]='C';
+                     map[4][2]='C';
+                     map[4][5]='C';
+                
             }
         }
         return map;
