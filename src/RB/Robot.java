@@ -10,7 +10,7 @@ package RB;
  *
  * @author ELIZABETH HERNANDEZ
  */
-public class Robot {
+public abstract class Robot implements CM {
    private String Id;
    private int x;
    private int y;

@@ -109,7 +109,7 @@ static ArrayList<Robot> Robots = new ArrayList();
     public static void IMPMAP(char [][]map){
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
-                
+                System.out.println("["+map[i][j]+"]");
             }
         }
     }
