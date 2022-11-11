@@ -20,6 +20,13 @@ public class Movilagil extends Robot {
         this.velocidad = velocidad;
     }
 
+    public Movilagil(int llantas, double velocidad, String Id, int x, int y, boolean estado, String fabricacion) {
+        super(Id, x, y, estado, fabricacion);
+        this.llantas = llantas;
+        this.velocidad = velocidad;
+    }
+    
+
     public Movilagil(int Capacidad, int llantas, double velocidad, String Id, int x, int y, boolean estado, String fabricacion) {
         super(Id, x, y, estado, fabricacion);
         this.Capacidad = Capacidad;

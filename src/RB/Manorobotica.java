@@ -18,6 +18,12 @@ public class Manorobotica extends Robot {
         this.motores = motores;
     }
 
+    public Manorobotica(int motores, String Id, int x, int y, boolean estado, String fabricacion) {
+        super(Id, x, y, estado, fabricacion);
+        this.motores = motores;
+    }
+    
+
     public Manorobotica(int Capacidad, int motores, String Id, int x, int y, boolean estado, String fabricacion) {
         super(Id, x, y, estado, fabricacion);
         this.Capacidad = Capacidad;
