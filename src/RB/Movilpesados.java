@@ -18,7 +18,7 @@ public class Movilpesados extends Robot {
         this.peso = peso;
     }
 
-    public Movilpesados(int capacidad, int peso, String Id, int x, int y, boolean estado, String fabricacion) {
+    public Movilpesados(int capacidad, int peso, String Id, int x, int y, boolean estado, String fabricacion)  {
         super(Id, x, y, estado, fabricacion);
         this.capacidad = capacidad;
         this.peso = peso;
@@ -28,8 +28,14 @@ public class Movilpesados extends Robot {
         return capacidad;
     }
 
-    public void setCapacidad(int capacidad) {
-        this.capacidad = capacidad;
+    public void setCapacidad(int capacidad) throws Miexcepcion {
+        if (capacidad>=5) {
+             this.capacidad = capacidad;
+        }
+        else{
+            throw new Miexcepcion("La capacidad debe ser mayor o igual a 5");
+        }
+       
     }
 
     public int getPeso() {
@@ -47,7 +53,7 @@ public class Movilpesados extends Robot {
 
     @Override
     public void validar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
@@ -66,9 +72,10 @@ public class Movilpesados extends Robot {
     }
 
     @Override
-    public char[][] rot(int deg, char or) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public int rot(int deg, char or) {
+        int rota= 0;
+        return rota;
+    }    
 
     
     

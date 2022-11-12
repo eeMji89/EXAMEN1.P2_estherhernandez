@@ -5,6 +5,8 @@
 package RB;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author ELIZABETH HERNANDEZ
@@ -30,6 +32,7 @@ static ArrayList<Robot> Robots = new ArrayList();
             Robots.add(new Androide(5,12,"4321",0,0,false,"2007"));
             switch (opcion) {
                 case 1:
+                    Robot rb = new Androide();
                     boolean f1 = false;
                     String Id="";
                      while (f1==false) {
@@ -53,12 +56,33 @@ static ArrayList<Robot> Robots = new ArrayList();
                     else{
                         f1=true;
                     }}
-                
-                    System.out.println("Ingrese la posicion inicial");
-                    System.out.println("Ingrese x: ");
-                    int x = lea.nextInt();
+                     boolean f4 = false;
+                     boolean f5 = false;
+                     int x=0,y =0;
+                     
+                     System.out.println("Ingrese la posicion inicial");
+                     while(f4 == false){
+                     System.out.println("Ingrese x: ");
+                     x = lea.nextInt();
+                     try{
+                         rb.setX(x);
+                         f4 = true;
+                     }
+                     catch(Miexcepcion e){
+                         System.out.println(e.getMessage());
+                     }}
+                     while(f5==false){
                     System.out.println("Ingrese y: ");
-                    int y = lea.nextInt();
+                    y = lea.nextInt();
+                    try{
+                         rb.setY(y);
+                         f5=true;
+                     }
+                     catch(Miexcepcion e){
+                         System.out.println(e.getMessage());
+  
+                     }}
+                    
                     System.out.println("Ingrese el año de fabricacion");
                     String year = lea.next();
                     System.out.println("Eliga que tipo de robot es: ");
@@ -91,14 +115,30 @@ static ArrayList<Robot> Robots = new ArrayList();
                             System.out.println("Robot creado exitosamente.");
                             break;
                         case 'd':
-                            System.out.println("Ingrese la capacidad maxima(mayor que cinco):");
-                            int cap = lea.nextInt();
+                            boolean f7= true;
+                            Robot rm = new Movilpesados();
+                            int cap =0;
                             System.out.println("Ingrese el peso: ");
                             int p = lea.nextInt();
-                            Robots.add(new Movilpesados(cap, p, Id, x, y, false, year));
+                            while(f7==true){
+                            try{
+                            System.out.println("Ingrese la capacidad maxima(mayor que cinco):");
+                            cap = lea.nextInt();
+                            ((Movilpesados)rm).setCapacidad(cap);
+                            f7=false;
+                            }
+                            catch(Miexcepcion e){
+                                System.out.println(e.getMessage());
+                            }
+                            }
+                
+                 
+                        Robots.add(new Movilpesados(cap, p, Id, x, y, false, year));
+               
                             System.out.println("Robot creado exitosamente. ");
                             break;
-                            
+
+                           
                         default:
                             System.out.println("Opcion no valida, intente denuevo");
                             break;
@@ -139,8 +179,15 @@ static ArrayList<Robot> Robots = new ArrayList();
                             int y1 = Robots.get(rr).getY();
                              mapa = generarMapa(mapa,x1,y1);
                              IMPMAP(mapa);
+                             
                         }
+                        System.out.println("Usar los siguientes comandos:"
+                                + "\nu= arriba\na = abajo\n r = derecha\n l = izquierda ");
+                        String cmd = lea.next();   
+                        
                     }
+                    
+                    
                     else{
                         System.out.println("Intente de nuevo");
                     }

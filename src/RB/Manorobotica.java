@@ -53,7 +53,7 @@ public class Manorobotica extends Robot {
 
     @Override
     public void validar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        
     }
 
     @Override
@@ -72,7 +72,7 @@ public class Manorobotica extends Robot {
     }
 
     @Override
-    public char[][] rot(int deg, char or) {
+    public int rot(int deg, char or) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

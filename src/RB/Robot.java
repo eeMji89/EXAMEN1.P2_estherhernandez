@@ -37,19 +37,31 @@ public abstract class Robot implements CM {
     }
 
     public int getX() {
+       
         return x;
     }
 
-    public void setX(int x) {
-        this.x = x;
+    public void setX(int x) throws Miexcepcion {
+        if(x >=0 && x <8){
+            this.x = x;
+        }
+        else{
+            throw new Miexcepcion("x debe estar entre 0 y 7, Ingrese denuevo");
+        }
     }
 
     public int getY() {
         return y;
     }
 
-    public void setY(int y) {
-        this.y = y;
+    public void setY(int y) throws Miexcepcion{
+        if(y >=0 && y <8){
+            this.y = y;
+        }
+        else{
+            throw new Miexcepcion("y debe estar entre 0 y 7");
+        }
+        
     }
 
     public boolean isEstado() {
