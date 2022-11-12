@@ -105,6 +105,23 @@ public class Androide extends Robot {
         }
         else if(deg ==180){
             if (or=='U') {
+                 rot=1;
+            }
+            else if(or=='D'){
+                rot = 3;
+            }
+            else if(or=='R'){
+                rot = 2;
+            }
+            else if(or=='L'){
+                rot = 0;
+            }
+            or ='R';
+        }
+        
+        
+        else if(deg == 270){
+            if (or=='U') {
                  rot=2;
             }
             else if(or=='D'){
@@ -114,14 +131,9 @@ public class Androide extends Robot {
                 rot = 3;
             }
             else if(or=='L'){
-                rot = 4;
+                rot = 1;
             }
             or ='D';
-        }
-        
-        
-        else if(deg == 270){
-            
         }
         return r;
     }
