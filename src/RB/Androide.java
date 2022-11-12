@@ -85,7 +85,28 @@ public class Androide extends Robot {
 
     @Override
     public int rot(int deg, char or) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        int rot = 0;
+        if (deg ==90){
+            if (or=='U') {
+                 
+            }
+            else if(or=='D'){
+                
+            }
+            else if(or=='R'){
+                
+            }
+            else if(or=='L'){
+                
+            }
+        }
+        else if(deg ==180){
+            
+        }
+        else  if(deg ==270){
+            
+        }
+        return rot;
     }
     
             
