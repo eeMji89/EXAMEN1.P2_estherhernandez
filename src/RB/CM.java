@@ -14,6 +14,6 @@ public interface CM {
     public abstract char[][] mov(int x1,int y1,int x2,int y2);
     public abstract char[][] mnt();
     public abstract char[][] unmnt();
-    public abstract int rot(int deg,char or);
+    public abstract String rot(int deg,char or);
      
 }

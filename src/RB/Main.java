@@ -5,6 +5,7 @@
 package RB;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -160,7 +161,42 @@ static ArrayList<Robot> Robots = new ArrayList();
                             int y1 = Robots.get(r).getY();
                              mapa = generarMapa(mapa,x1,y1);
                              IMPMAP(mapa);
-                        }
+                             
+                        String cmd ="";
+                          System.out.println("Usar los siguientes comandos:"
+                                + "\nu= arriba\na = abajo\n r = derecha\n l = izquierda \n "
+                                  + "p= recoger cargo\n b = dejar cargo \nsepararlos por coma");
+                        cmd = lea.nextLine();  
+                        cmd = lea.next();
+                  
+                    char [] ins = cmd.toCharArray();
+                    int x2=0;
+                    int y2=0;
+                            for (int i = 0; i < ins.length; i++) {
+                                if (ins[i]=='u') {
+                                    x2= x1-1;
+                                    y2= y1;
+                                }
+                                else if(ins[i]=='a'){
+                                    x2= x1+1;
+                                    y2= y1;
+                                }
+                                else if(ins[i]=='r'){
+                                    x2= x1;
+                                    y2= y1+1;
+                                }
+                                else if(ins[i]=='l'){
+                                    x2= x1;
+                                    y2= y1-1;
+                                }
+                                else if(ins[i]=='p'){
+                                    
+                                    
+                                }else if(ins[i]=='b'){
+                                    
+                                }
+                            }
+                    }
                     }
                     else{
                         System.out.println("Intente de nuevo");
@@ -182,8 +218,9 @@ static ArrayList<Robot> Robots = new ArrayList();
                              
                         }
                         System.out.println("Usar los siguientes comandos:"
-                                + "\nu= arriba\na = abajo\n r = derecha\n l = izquierda ");
-                        String cmd = lea.next();   
+                                + "\nu= arriba\na = abajo\n r = derecha\n l = izquierda \n separarlos por coma");
+                        String cmd = lea.next();  
+                        
                         
                     }
                     

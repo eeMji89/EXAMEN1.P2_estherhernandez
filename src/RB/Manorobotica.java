@@ -72,7 +72,7 @@ public class Manorobotica extends Robot {
     }
 
     @Override
-    public int rot(int deg, char or) {
+    public String rot(int deg, char or) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     

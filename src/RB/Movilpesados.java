@@ -72,9 +72,10 @@ public class Movilpesados extends Robot {
     }
 
     @Override
-    public int rot(int deg, char or) {
+    public String rot(int deg, char or) {
         int rota= 0;
-        return rota;
+        String r = rota+"";
+        return r;
     }    
 
     
